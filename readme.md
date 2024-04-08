@@ -1,3 +1,3 @@
 # Identify Impactful Mutations 2
-# authoer
+# author
 Changrui Li, Yang Zheng, Filip Jagodzinski
