@@ -151,8 +151,6 @@ def compare_significance(grouped_mutations, metrics_list, protein_name, upload):
             path = f'p-test/{protein_name}_{metric}_{group_names[group[0]]}_{group_names[group[1]]}'
             plt.tight_layout()
             plt.savefig(path, dpi=400)
-            if upload:
-                upload_to_wandb(plt, f't-test of group {group_names[group[0]]}, {group_names[group[1]]}', 't-test per metric', title)
 
 def run_program(protein_name, metric, value, operator):
     # Placeholder for your program's logic
