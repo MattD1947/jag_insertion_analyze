@@ -1,19 +1,16 @@
-import matplotlib, os, sys, wandb, math, statistics, requests
+import os, sys, math, requests
 from statistics import mean, stdev
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-import seaborn as sns
 import numpy as np
-from collections import Counter, defaultdict
-from protein_class import load_protein_from_file, _mutants_outside_two_stdev_for_metric, Protein, Mutation
-from multiprocessing import Pool
-from main import get_sorted_two_AA_list_hydrophobicity, get_sorted_two_AA_lines, create_folder, upload_to_wandb
+from protein_class import load_protein_from_file
 from scipy.stats import norm, ttest_ind
 from itertools import combinations
 plt.rcParams.update({'font.size': 14 * 1.8})
 
 def main_load(protein_name):
     protein_class_path = '/research/jagodzinski/lic7/data/save_classes/saved_with_all_patterns'
+    # loading the pdb data
     pdb_url = f'https://files.rcsb.org/download/{protein_name}.pdb'
     response = requests.get(pdb_url)
     pdb_content = response.text
