@@ -7,7 +7,7 @@ def get_sorted_amino_acid_list():
   sorted_amino_acid_list =sorted(
           [
           ('A',88.6 ,'Hydrophobic'),
-          ('V',99.13,'Hydrophobic'),
+          ('V',140.0,'Hydrophobic'),
           ('F',189.9,'Hydrophobic'),
           ('P',112.7,'Hydrophobic'),
           ('L',166.7,'Hydrophobic'),
