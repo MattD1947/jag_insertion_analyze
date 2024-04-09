@@ -3,6 +3,35 @@ from os import makedirs
 from pandas import read_csv as read_csv
 from matplotlib.patches import Rectangle
 
+def main():
+  # feed output to feeding
+  root_jag = os.path.join(os.getcwd())
+  # feeding_path = os.path.join('root_jag','output')
+  amino_acid_feeding_path = os.path.join(root_jag, '../result/outlier_amino_acid_pairs_frequency')
+  amino_acid_feeding_list = os.listdir(amino_acid_feeding_path)
+  # print(feeding_list)
+
+  # feeding filenames
+  feedings = [feeding for feeding in sorted(amino_acid_feeding_list)
+  if feeding.endswith('a1_a2_frequency.txt')]
+
+  frequency_amino_acid_data_sets = []
+  for feeding in feedings:
+    try:
+      file_path = os.path.join(amino_acid_feeding_path, feeding)
+      # print(file_path)
+      frequency_amino_acid_data_sets.append(read_csv(file_path, delimiter = '\t'))
+    except Exception as e:
+      print(f"Error reading {feeding}: {e}")
+
+  amino_acid_heatmap = os.path.join(root_jag,'amino_acid_heatmap')
+  project_name = "rmsd_amino_acid_heatmap_by_LAOJIEWOXIANG"
+  print(frequency_amino_acid_data_sets)
+  # exit(1)
+  [create_heatmap(data,'a1','a2',f"{feeding[:-4].replace('_',' ')}",
+                  amino_acid_heatmap,'Amino Acid','Amino Acid', False, project_name)
+  for data, feeding in zip(frequency_amino_acid_data_sets, feedings)]
+
 def get_sorted_amino_acid_list():
   sorted_amino_acid_list =sorted(
           [
@@ -81,54 +110,7 @@ def create_heatmap(data,cat1,cat2,plot_title,output_path,x_axis_label,y_axis_lab
   os.makedirs(output_path, exist_ok=True)  
   plt.savefig(os.path.join(output_path,plot_title.replace(' ','_')+'_heatmap.png'))
 
-# feed output to feeding
-root_jag = os.path.join(os.getcwd())
-# feeding_path = os.path.join('root_jag','output')
-amino_acid_feeding_path = os.path.join(root_jag, '../result/outlier_amino_acid_pairs_frequency')
-feeding_list = os.listdir(amino_acid_feeding_path)
-feeding_path = os.path.join(root_jag, '../result/outlier_position_pairs_frequency')
-feeding_list.extend(os.listdir(feeding_path))
-print(feeding_list)
-
-# feeding filenames
-
-feedings = [feeding for feeding in sorted(feeding_list)
-if feeding.endswith('a1_a2_frequency.txt')]
-
-frequency_amino_acid_data_sets = []
-for feeding in feedings:
-  try:
-    file_path = os.path.join(feeding_path, feeding)
-    print(file_path)
-    frequency_amino_acid_data_sets.append(read_csv(file_path, delimiter = '\t'))
-  except Exception as e:
-    print(f"Error reading {feeding}: {e}")
-
-amino_acid_heatmap = os.path.join(root_jag,'amino_acid_heatmap')
-project_name = "rmsd_amino_acid_heatmap_by_LAOJIEWOXIANG"
-[create_heatmap(data,'a1','a2',f"{feeding[:-4].replace('_',' ')}",
-                amino_acid_heatmap,'Amino Acid','Amino Acid', False, project_name)
-for data, feeding in zip(frequency_amino_acid_data_sets, feedings)]
-pairwise_position_heatmap = os.path.join(root_jag,'pairwise_position')
-
-# feeding filenames
-feedings = [feeding for feeding in sorted(feeding_list) if feeding.endswith('position_frequency.txt')]
-
-# frequency data sets
-frequency_positions_data_sets = [read_csv(os.path.join(feeding_path,feeding),delimiter='\t') for feeding in feedings]
-
-# Specify the path of the folder to be removed
-folder_path = pairwise_position_heatmap
-# Make sure the path exists
-
-upload = False
-if not upload:
-  makedirs(pairwise_position_heatmap, exist_ok=True)
-project_name = "rmsd_position_heatmap"
-[create_heatmap(data,'p1','p2',f"{feeding[:-4].replace('_',' ')}",pairwise_position_heatmap,'Position','Position',upload,project_name) for data, feeding in zip(frequency_positions_data_sets,feedings)]
-
 # sorted list of aa pairs based on size
-
 def get_sorted_two_AA_lines():
     amino_acid_list = get_sorted_amino_acid_list()
     result = []
@@ -137,4 +119,7 @@ def get_sorted_two_AA_lines():
             result.append(((a1[0],a2[0]),a1[1]+a2[1],a1[1],a1[2],a2[1],a2[2]))
     result = sorted(result,key=lambda x: x[1], reverse=True)
     return result
+
+if __name__ == "__main__":
+  main()
 
