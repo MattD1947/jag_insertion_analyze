@@ -28,7 +28,7 @@ def main():
   project_name = "rmsd_amino_acid_heatmap_by_LAOJIEWOXIANG"
   print(frequency_amino_acid_data_sets)
   # exit(1)
-  [create_heatmap(data,'a1','a2',f"{feeding[:-4].replace('_',' ')}",
+  [create_heatmap(data,'pair',f"{feeding[:-4].replace('_',' ')}",
                   amino_acid_heatmap,'Amino Acid','Amino Acid', False, project_name)
   for data, feeding in zip(frequency_amino_acid_data_sets, feedings)]
 
@@ -61,7 +61,7 @@ def get_sorted_amino_acid_list():
   return sorted_amino_acid_list
 sorted_list = get_sorted_amino_acid_list()
 
-def create_heatmap(data,cat1,cat2,plot_title,output_path,x_axis_label,y_axis_label,upload,project_name):
+def create_heatmap(data,pair,plot_title,output_path,x_axis_label,y_axis_label,upload,project_name):
   import matplotlib.pyplot as plt
   import seaborn as sns
   import pandas as pd
@@ -69,7 +69,7 @@ def create_heatmap(data,cat1,cat2,plot_title,output_path,x_axis_label,y_axis_lab
 
   plt.rcParams.update({'font.size': 12 * 1.8})
   sorted_amino_acid_size = [tup[0] for tup in get_sorted_amino_acid_list()]
-  heatmap_data = data.pivot(index=cat1, columns=cat2, values="frequency")
+  heatmap_data = data.pivot(index=pair, values="frequency")
   heatmap_data = heatmap_data.reindex(index=sorted_amino_acid_size[::-1], columns=sorted_amino_acid_size)
   original_index = heatmap_data.index.tolist()
   original_columns = heatmap_data.columns.tolist()
