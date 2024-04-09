@@ -83,8 +83,12 @@ def create_heatmap(data,cat1,cat2,plot_title,output_path,x_axis_label,y_axis_lab
 
 # feed output to feeding
 root_jag = os.path.join(os.getcwd())
-feeding_path = os.path.join(root_jag,'output')
-feeding_list = os.listdir(feeding_path)
+# feeding_path = os.path.join('root_jag','output')
+amino_acid_feeding_path = os.path.join(root_jag, '../result/outlier_amino_acid_pairs_frequency')
+feeding_list = os.listdir(amino_acid_feeding_path)
+feeding_path = os.path.join(root_jag, '../result/outlier_position_pairs_frequency')
+feeding_list.extend(os.listdir(feeding_path))
+print(feeding_list)
 
 # feeding filenames
 
@@ -94,14 +98,11 @@ if feeding.endswith('a1_a2_frequency.txt')]
 frequency_amino_acid_data_sets = []
 for feeding in feedings:
   try:
-    # if ('1hhp_cluster' in feeding):
-      file_path = os.path.join(feeding_path, feeding)
-      frequency_amino_acid_data_sets.append(read_csv(file_path, delimiter = '\t'))
-      # print(feeding)
-    # print('loaded')
+    file_path = os.path.join(feeding_path, feeding)
+    print(file_path)
+    frequency_amino_acid_data_sets.append(read_csv(file_path, delimiter = '\t'))
   except Exception as e:
     print(f"Error reading {feeding}: {e}")
-
 
 amino_acid_heatmap = os.path.join(root_jag,'amino_acid_heatmap')
 project_name = "rmsd_amino_acid_heatmap_by_LAOJIEWOXIANG"
@@ -111,7 +112,7 @@ for data, feeding in zip(frequency_amino_acid_data_sets, feedings)]
 pairwise_position_heatmap = os.path.join(root_jag,'pairwise_position')
 
 # feeding filenames
-feedings = [feeding for feeding in sorted(feeding_list) if feeding.endswith('p1_p2_frequency.txt')]
+feedings = [feeding for feeding in sorted(feeding_list) if feeding.endswith('position_frequency.txt')]
 
 # frequency data sets
 frequency_positions_data_sets = [read_csv(os.path.join(feeding_path,feeding),delimiter='\t') for feeding in feedings]

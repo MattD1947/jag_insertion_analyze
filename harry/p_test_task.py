@@ -4,12 +4,14 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import numpy as np
 from protein_class import load_protein_from_file
+from protein_class import Protein, Mutation
 from scipy.stats import norm, ttest_ind
 from itertools import combinations
 plt.rcParams.update({'font.size': 14 * 1.8})
 
 def main_load(protein_name):
-    protein_class_path = '/research/jagodzinski/lic7/data/save_classes/saved_with_all_patterns'
+    # protein_class_path = '/research/jagodzinski/lic7/data/save_classes/saved_with_all_patterns'
+    protein_class_path = '../data/saved_classes_data'
     # loading the pdb data
     pdb_url = f'https://files.rcsb.org/download/{protein_name}.pdb'
     response = requests.get(pdb_url)
@@ -148,6 +150,7 @@ def compare_significance(grouped_mutations, metrics_list, protein_name, upload):
             ax.add_patch(rect)
 
             # Show the plot
+            os.makedirs('p-test', exist_ok=True)
             path = f'p-test/{protein_name}_{metric}_{group_names[group[0]]}_{group_names[group[1]]}'
             plt.tight_layout()
             plt.savefig(path, dpi=400)
