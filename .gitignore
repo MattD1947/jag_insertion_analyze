@@ -1,2 +1,4 @@
 venv
 data/saved_classes_data/
+__pycache__
+plots_results/
