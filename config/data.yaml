@@ -1,0 +1,12 @@
+# Identifying And Comparison Analyze Impactful Pairs of Insertion Mutations in Proteins
+# 2024
+# Changrui Li and Yang Zheng
+
+#PDB ID of protein that is being used
+protein: ''
+
+# Length of protein
+protein_length: ''
+
+# Path to data directory
+data_path: ''

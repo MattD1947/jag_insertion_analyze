@@ -1,0 +1,21 @@
+# Identifying And Comparison Analyze Impactful Pairs of Insertion Mutations in Proteins
+# 2024
+# Changrui Li and Yang Zheng
+
+# Protein information
+protein_length_1crn: 46
+protein_length_1csp: 67
+protein_length_1hhp: 99 
+
+# Discovered metrics
+metrics: [
+  'cluster_configuration_entropy',
+  'hbond_count',
+  'size_of_largest_cluster',
+  'rigidity_order_parameter'
+  ]
+
+# Path
+saved_protein_data_path: '../data/saved_classes_data/'
+result_path: ''
+plots_path: ''
