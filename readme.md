@@ -2,7 +2,6 @@
 Changrui Li, Yang Zheng, Filip Jagodzinski | Western Washington University, Department of Computer Science, 2024
 
 ## Dependency
-
 `pip install requirements.txt`
 
 ## Data
@@ -16,7 +15,9 @@ In `main.yaml` file, there are proteins and metrics the study used.
 Find at `src/protein.py`.
 
 ## Sample
-Run `python3 src/main.py`
+Run 
+`cd src`
+`python3 main.py`
 
 ## Author Contributions Statement
 F.J. conceived the initial experiments. C.L. and Y.Z. conducted the experiments and analyzed the results. C.L.,Y.Z., and F.J.

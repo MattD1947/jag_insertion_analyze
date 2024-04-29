@@ -1,10 +1,8 @@
-"""
-How Pairs of Insertion Mutations Impact Protein Structure: An Exhaustive Computational Study
+# How Pairs of Insertion Mutations Impact Protein Structure: An Exhaustive Computational Study
 
-2024
+# 2024
 
-Changrui Li, Yang Zheng, and Filip Jagodzinski
-"""
+# Changrui Li, Yang Zheng, and Filip Jagodzinski
 
 #PDB ID of protein that is being used
 proteins: ['1crn','1csp','1hhp']
