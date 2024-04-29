@@ -9,17 +9,31 @@ from multiprocessing import Pool
 
 class Protein:
     def __init__(self, name):
+        # protein name
         self.name = name
+        
+        # mutations list
         self.mutations = []
+        
     def __repr__(self):
         return f"<Protein name={self.name}, number of mutations={len(self.mutations)}>"
 
 class Mutation:
-    def __init__(self, indel1, aa1, indel2, aa2, hbond_count, size_of_largest_cluster, rigidity_order_parameter, cluster_configuration_entropy, hbond_diff=None):
+    def __init__(self, indel1, aa1, indel2, aa2, hbond_count, size_of_largest_cluster, rigidity_order_parameter, cluster_configuration_entropy):
+        
+        # the first position
         self.indel1 = indel1
+        
+        # the first inserted amino acid
         self.aa1 = aa1
+        
+        # the second position
         self.indel2 = indel2
+        
+        # the second inserted amino acid
         self.aa2 = aa2
+        
+        # metrics
         self.hbond_count = hbond_count
         self.size_of_largest_cluster = size_of_largest_cluster
         self.rigidity_order_parameter = rigidity_order_parameter
