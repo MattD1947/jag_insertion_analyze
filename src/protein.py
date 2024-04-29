@@ -5,8 +5,6 @@ How Pairs of Insertion Mutations Impact Protein Structure: An Exhaustive Computa
 
 Changrui Li, Yang Zheng, and Filip Jagodzinski
 """
-from multiprocessing import Pool
-
 class Protein:
     def __init__(self, name):
         # protein name
