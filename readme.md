@@ -34,7 +34,7 @@ proteins:
 1crn, 1csp, 1hhp
 
 metrics: 
-cluster_configuration_entropy
-hbond_count
-size_of_largest_cluster
+cluster_configuration_entropy,
+hbond_count,
+size_of_largest_cluster,
 rigidity_order_parameter
