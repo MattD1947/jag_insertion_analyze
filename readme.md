@@ -9,13 +9,13 @@ Changrui Li, Yang Zheng, Filip Jagodzinski | Western Washington University, Depa
 Extract `data/saved_classes_data.rar` file locally under `data` folder so the script can run.
 
 
-## configuration
+## Configuration
 In `main.yaml` file, there are proteins and metrics the study used.
 
-## data structure
+## Data Structure
 Find at `src/protein.py`.
 
-## see sample
+## Sample
 Run `python3 src/main.py`
 
 ## Author Contributions Statement
