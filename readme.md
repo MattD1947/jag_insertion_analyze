@@ -3,14 +3,18 @@ Changrui Li, Yang Zheng, Filip Jagodzinski | Western Washington University, Depa
 
 ## Dependency
 ````
-```
 pip install requirements.txt
-```
 ````
 
 ## Data
 Extract `data/saved_classes_data.rar` file locally under `data` folder so the script can run.
 
+For linux, you can use the command below if you have `unrar`.
+````
+cd data
+unrar x saved_classes_data.rar ./
+cd ..
+````
 
 ## Configuration
 In `main.yaml` file, there are proteins and metrics the study used.
@@ -19,13 +23,25 @@ In `main.yaml` file, there are proteins and metrics the study used.
 Find at `src/protein.py`.
 
 ## Sample
-Run 
+Get into source folder.
+````
+cd src
+````
+If you are looking for a summary among the three proteins, run the commands below.
 
 ````
-```
-cd src
 python3 main.py
-```
+````
+
+If you like to look at a specific mutation of the a protein as example, for protein 1hhp, insert the first position at 1 with amino acid Proline (P), and insert the second position at 22 with alanine (A), you can run the command below.
+
+````
+python3 main.py 1hhp 1 P 22 A
+````
+
+And you would expect getting result like below.
+````
+[<Mutation indel1=1, aa1=P, indel2=22, aa2=A, hbond=10, size of largest cluster=126.0, rigidity order parameter=0.0616137, cluster configuration entropy=2.64985>]
 ````
 
 ## Author Contributions Statement

@@ -7,20 +7,20 @@ Changrui Li and Yang Zheng
 """
 
 # standard library imports
-import os
+import os, sys
 
 
 # import - third paty
 # import json, pickle, statistics,math
 
 # import - local
-from utils import load_config, get_filenames, load_protein, crop_mutations
+from utils import load_config, get_filenames, load_protein, crop_mutations, inquiry
 from protein import Protein, Mutation
 
+# main yaml path
+main_yaml_path = '../config/main.yaml'
 
 def main():
-    # main yaml path
-    main_yaml_path = '../config/main.yaml'
     
     # settings configurations
     config = load_config(main_yaml_path)
@@ -59,6 +59,22 @@ def main():
     print("# mutation sample")
     print(cropped_mutations_groups['1hhp'][0])
 
+def look_at_a_mutaiton():
+    args = sys.argv
+    protein_name =   args[1]
+    indel1=     args[2]
+    aa1=        args[3]
+    indel2=     args[4]
+    aa2=        args[5]
+    config = load_config(main_yaml_path)
+    saved_protein_data_path = config.get('saved_protein_data_path')
+    protein_data = load_protein(os.path.join(saved_protein_data_path,protein_name + '.pkl'))
+    
+    print(inquiry(protein_data,indel1,aa1,indel2,aa2))
+
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 2:
+        look_at_a_mutaiton()
+    else:
+        main()
     pass
