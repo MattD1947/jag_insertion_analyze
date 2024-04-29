@@ -27,3 +27,14 @@ wrote the manuscript.
 
 ## Acknowledgements
 The authors thank Zach McGrew in the CS Support Group for his expertise in maintaining the compute cluster. This work was supported in part by funds from the National Science Foundation (NSF: #2031283).
+
+# Proteins and Metrics
+
+proteins: 
+1crn, 1csp, 1hhp
+
+metrics: 
+cluster_configuration_entropy
+hbond_count
+size_of_largest_cluster
+rigidity_order_parameter
