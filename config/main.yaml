@@ -2,10 +2,8 @@
 # 2024
 # Changrui Li and Yang Zheng
 
-# Protein information
-protein_length_1crn: 46
-protein_length_1csp: 67
-protein_length_1hhp: 99 
+#PDB ID of protein that is being used
+proteins: ['1crn','1csp','1hhp']
 
 # Discovered metrics
 metrics: [
@@ -17,5 +15,3 @@ metrics: [
 
 # Path
 saved_protein_data_path: '../data/saved_classes_data/'
-result_path: ''
-plots_path: ''
