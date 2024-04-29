@@ -2,7 +2,7 @@
 Changrui Li, Yang Zheng, Filip Jagodzinski | Western Washington University, Department of Computer Science, 2024
 
 ## Dependency
-`pip install requirements.txt`
+```pip install requirements.txt```
 
 ## Data
 Extract `data/saved_classes_data.rar` file locally under `data` folder so the script can run.
@@ -16,8 +16,10 @@ Find at `src/protein.py`.
 
 ## Sample
 Run 
-`cd src`
-`python3 main.py`
+
+```cd src```
+
+```python3 main.py```
 
 ## Author Contributions Statement
 F.J. conceived the initial experiments. C.L. and Y.Z. conducted the experiments and analyzed the results. C.L.,Y.Z., and F.J.
