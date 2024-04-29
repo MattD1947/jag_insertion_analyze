@@ -1,4 +1,10 @@
-import os, json, pickle, statistics
+"""
+How Pairs of Insertion Mutations Impact Protein Structure: An Exhaustive Computational Study
+
+2024
+
+Changrui Li, Yang Zheng, and Filip Jagodzinski
+"""
 from multiprocessing import Pool
 
 class Protein:

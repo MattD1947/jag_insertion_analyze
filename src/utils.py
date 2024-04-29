@@ -1,21 +1,18 @@
 """
-Identifying And Comparison Analyze Impactful Pairs of Insertion Mutations in Proteins
+How Pairs of Insertion Mutations Impact Protein Structure: An Exhaustive Computational Study
 
 2024
 
-Changrui Li and Yang Zheng
+Changrui Li, Yang Zheng, and Filip Jagodzinski
 """
 
 # Standard libary imports
 import os
 
 # Third party imports
-import yaml, json, pickle, statistics
+import yaml, pickle
 
 def load_config(config_file):
-    """
-        Reads the config yaml file and returns its contents.
-    """
     with open(config_file,'r') as f:
         config = yaml.safe_load(f)
     f.close()
