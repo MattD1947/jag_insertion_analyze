@@ -32,11 +32,6 @@ def get_filenames(target_path):
     for filename in os.listdir(path=target_path):
         yield filename 
 
-# load protein class
-def load_protein(filename):
-    with open(filename,'rb') as file:
-        return pickle.load(file)
-
 #crop the mutations that two inserted positions that are closer than or equal to 12 since at 12 there is majority missing mutations that can not be generated 
 def crop_mutations(mutations):
     return [mutation for mutation in mutations if abs(int(mutation.indel1) - int(mutation.indel2)) > 12]
