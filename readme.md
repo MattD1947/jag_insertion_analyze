@@ -40,10 +40,10 @@ python3 main.py 1hhp 1 P 22 A
 ```
 
 And you would expect getting result like below.
-<code>
-[<Mutation indel1=1, aa1=P, indel2=22, aa2=A, hbond=10, size of largest cluster=126.0, rigidity order parameter=0.0616137, cluster configuration entropy=2.64985>]
-</code>
 
+```
+[<Mutation indel1=1, aa1=P, indel2=22, aa2=A, hbond=10, size of largest cluster=126.0, rigidity order parameter=0.0616137, cluster configuration entropy=2.64985>]
+```
 ## Author Contributions Statement
 F.J. conceived the initial experiments. C.L. and Y.Z. conducted the experiments and analyzed the results. C.L.,Y.Z., and F.J.
 wrote the manuscript.
