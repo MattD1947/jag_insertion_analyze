@@ -53,7 +53,7 @@ wrote the manuscript.
 ## Acknowledgements
 The authors thank Zach McGrew in the CS Support Group for his expertise in maintaining the compute cluster. This work was supported in part by funds from the National Science Foundation (NSF: #2031283).
 
-# Proteins and Metrics
+## Proteins and Metrics
 
 proteins: 
 1crn, 1csp, 1hhp
