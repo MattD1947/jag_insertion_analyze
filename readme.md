@@ -24,18 +24,18 @@ Find at `src/protein.py`.
 
 ## Sample
 Get into source folder.
-```bash
+```
 cd src
 ```
 If you are looking for a summary among the three proteins, run the commands below.
 
-```bash
+```
 python3 main.py
 ```
 
 If you like to look at a specific mutation of the a protein as example, for protein 1hhp, insert the first position at 1 with amino acid Proline (P), and insert the second position at 22 with alanine (A), you can run the command below.
 
-```bash
+```
 python3 main.py 1hhp 1 P 22 A
 ```
 
